@@ -5,10 +5,20 @@ package clothes_system;
 public class OrderItems {
     private int desired_quantity;
     private double total_price;
+    private Product product;
 
-    public OrderItems(int desired_quantity, double total_price) {
+    public OrderItems(int desired_quantity, double total_price,Product product) {
         this.desired_quantity = desired_quantity;
         this.total_price = total_price;
+        this.product=product;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getDesired_quantity() {

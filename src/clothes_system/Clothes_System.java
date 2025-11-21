@@ -1,6 +1,8 @@
 
 package clothes_system;
 
+import clothes_system.Person.Type;
+import clothes_system.User.Utype;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -21,7 +23,7 @@ public class Clothes_System extends Application {
         
         stage.setScene(scene);
         stage.show();
-          User u = new User("Habiba alaa","01211","User","habiba@gmail.com","123h",100000,"Admin");
+          User u = new User("Habiba alaa","01211",Type.USER,"habiba@gmail.com","123h",100000,Utype.ADMIN);
         if(addUser(u)) System.out.println("sucessful");
     }
 
@@ -29,8 +31,8 @@ public class Clothes_System extends Application {
         String sql ="INSERT INTO User(UID,Email,Password,Type,Salary) VALUES(?,?,?,?,?)";
         try(Connection connection=DBconnector.connect();
             PreparedStatement ps = connection.prepareStatement(sql)){
-            
-            ps.setString(1,u.getId());
+           
+            ps.setInt(1,u.getId());
             ps.setString(2,u.getEmail());
             ps.setString(3,u.getPassword());
             ps.setString(4,u.getUtype());

@@ -1,26 +1,55 @@
 
 package clothes_system;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.UUID;
 
 public class Person {
-    private String id;
+    public enum Type {USER, CUSTOMER  , SUPPLIER}
+    private int id;
     private String name;
     private String contact_info;
-    private String type;
+    private Type type;
+    static private int counter;
 
-    public Person(String name, String contact_info, String type) {
-//        this.id = UUID.randomUUID().toString();
+    public Person(String name, String contact_info, Type type) {
+        initializeCounter();
+        counter ++;
+        this .id=counter;
         this.name = name;
         this.contact_info = contact_info;
         this.type = type;
     }
+    public static void initializeCounter() {
+            String sql = "SELECT MAX(ID) FROM Person";
+            counter = getMaxId();
+        }
+    public static int getMaxId() {
+            String sql = "SELECT MAX(ID) FROM Person";
+            try (Connection connection = DBconnector.connect();
+                 Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(sql)) {
 
-    public String getId() {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getType() {
+        return type.name();
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getName() {

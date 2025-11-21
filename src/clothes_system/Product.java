@@ -1,30 +1,40 @@
 
 package clothes_system;
 
-import java.util.UUID;
+
 
 public class Product {
     public enum Status { AVAILABLE ,NOT_AVAILABLE}
     
-    private String id;
+    private int id;
     private String name;
     private double price;
     private int quantity;
     private Status status;
+    private Supplier supplier;
 
-    public Product( String name, double price, int quantity, Status status) {
-        this.id = UUID.randomUUID().toString();
+    public Product( int id,Supplier supplier, String name, double price, int quantity, Status status) {
+        this.id = id;
+        this.supplier=supplier;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.status = status;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -52,8 +62,8 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Status getStatus() {
-        return status;
+    public String getStatus() {
+        return status.name();
     }
 
     public void setStatus(Status status) {

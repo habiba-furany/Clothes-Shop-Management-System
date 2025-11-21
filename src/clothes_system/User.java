@@ -3,12 +3,13 @@ package clothes_system;
 
 
 public class User extends Person {
+    public enum Utype {ADMIN ,CASHIER}
     private String email;
     private String password;
     private double salary;
-    private String utype;
+    private Utype utype;
 
-    public User(String name, String contact_info, String type,String email, String password, double salary, String utype) {
+    public User(String name, String contact_info, Type type,String email, String password, double salary, Utype utype) {
         super( name, contact_info, type);
         this.email = email;
         this.password = password;
@@ -41,10 +42,10 @@ public class User extends Person {
     }
 
     public String getUtype() {
-        return utype;
+        return utype.name();
     }
 
-    public void setUtype(String utype) {
+    public void setUtype(Utype utype) {
         this.utype = utype;
     }
     

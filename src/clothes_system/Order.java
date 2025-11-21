@@ -1,36 +1,73 @@
 
 package clothes_system;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+
 
 
 public class Order {
     public enum PaymentMethod {CASH,CREDIT}
-    private String id;
+    private ArrayList<OrderItems> orderItems;
+    private int id;
     private Date date;
     private float disount;
     private PaymentMethod payment_method;
     private double calculated_price;
     private double total_price;
+    static private int order_counter;
+    private Cashier cashier;
 
-    public Order( Date date, float disount, PaymentMethod payment_method, double calculated_price, double total_price) {
-        this.id = UUID.randomUUID().toString();
+    public Order( Date date, float disount, PaymentMethod payment_method, double calculated_price, double total_price,Cashier cashier) {
+        initializeCounter();
+        order_counter++;
+        this.cashier=cashier;
+        this.id=order_counter;
         this.date = date;
         this.disount = disount;
         this.payment_method = payment_method;
         this.calculated_price = calculated_price;
         this.total_price = total_price;
+        this.orderItems = new ArrayList<>();
+        
     }
+    
+     public static void initializeCounter() {
+            String sql = "SELECT MAX(ID) FROM Orders";
+            order_counter = getMaxId();
+        }
+    public static int getMaxId() {
+            String sql = "SELECT MAX(ID) FROM Orders";
+            try (Connection connection = DBconnector.connect();
+                 Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(sql)) {
 
-    public String getId() {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Cashier getCashier() {
+        return cashier;
     }
 
+    public void setCashier(Cashier cashier) {
+        this.cashier = cashier;
+    }
+
+  
     public Date getDate() {
         return date;
     }
@@ -69,6 +106,18 @@ public class Order {
 
     public void setTotal_price(double total_price) {
         this.total_price = total_price;
+    }
+    
+     public void addOrderItem(OrderItems item) {
+        this.orderItems.add(item);
+    }
+
+    public void removeOrderItem(OrderItems item) {
+        this.orderItems.remove(item);
+    }
+
+    public ArrayList<OrderItems> getOrderItems() {
+        return orderItems;
     }
 
     @Override

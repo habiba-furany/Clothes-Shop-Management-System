@@ -4,7 +4,7 @@ package clothes_system;
 
 public class Supplier extends Person{
     
-    public Supplier( String name, String contact_info, String type) {
+    public Supplier( String name, String contact_info, Type type) {
         super( name, contact_info, type);
     }
 

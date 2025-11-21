@@ -4,7 +4,7 @@ package clothes_system;
 
 public class Cashier extends User{
     
-    public Cashier(String email, String password, double salary, String utype, String name, String contact_info, String type) {
+    public Cashier(String email, String password, double salary, Utype utype, String name, String contact_info, Type type) {
         super(name, contact_info, type, email, password, salary, utype);
     }
 
