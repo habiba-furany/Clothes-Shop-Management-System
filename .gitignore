@@ -1,0 +1,15 @@
+# Build output
+build/
+dist/
+
+# Compiled classes
+*.class
+
+# Database files (ignore real DB)
+System.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Keep schema file
+!schema.sql
