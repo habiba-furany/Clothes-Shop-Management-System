@@ -56,9 +56,6 @@ public class Clothes_System extends Application {
             psUser.executeUpdate();
                 
    
-
-        
-            
             System.out.println(" missin done ");
             return true;
 
