@@ -1,0 +1,50 @@
+/*
+ * Empty Stylesheet file.
+ */
+.signInBtn{
+     -fx-background-color:#836953;
+     
+-fx-border-width: 2;
+-fx-border-radius: 25;
+-fx-background-radius: 25;
+
+}
+.signInBtn:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #9f8170;
+}
+.signInBtn:pressed{
+     -fx-effect: dropshadow(gaussian, rgba(128,128,128,0.6), 10, 0.5, 2, 2);
+}
+.signBoard{
+    -fx-background-color: transparent;
+}
+.coloredArea{
+    -fx-background-color: #836953;
+}
+.signInText{
+    -fx-font: 30px "Times New Roman"; 
+}
+.emailField {
+     -fx-background-color: transparent;
+    -fx-background-insets: 0, 0;
+    -fx-background-radius: 0, 0;
+    -fx-border-color: transparent transparent  #836953 transparent; /* خط سفلي دايمًا */
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 5 0 5 0; /* padding مناسب للنص */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-prompt-text-fill: blue;  
+}
+.passwordField {
+     -fx-background-color: transparent;
+    -fx-background-insets: 0, 0;
+    -fx-background-radius: 0, 0;
+    -fx-border-color: transparent transparent  #836953 transparent; /* خط سفلي دايمًا */
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 5 0 5 0; /* padding مناسب للنص */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-prompt-text-fill: blue;  
+}
+

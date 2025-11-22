@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="385.0" prefWidth="526.0" styleClass="signBoard" stylesheets="@signin.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clothes_system.SignInController">
+    <children>
+      <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="123.0" prefWidth="533.0" style="-fx-background-color: #836953;" styleClass="coloredArea" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateY="-10.0" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@resources/images/OIP__2_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text fill="#f2eeee" stroke="#242625" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="signInText" text="Welcome Again" textAlignment="CENTER" textOrigin="CENTER" translateY="-10.0" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Arial" size="33.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <VBox fx:id="vbox" alignment="TOP_CENTER" layoutX="-1.0" layoutY="123.0" prefHeight="262.0" prefWidth="534.0" styleClass="vbox" stylesheets="@signInStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text fill="#2e2525" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="emailText" text="Email">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="115.0" top="55.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="149.0" styleClass="emailField" stylesheets="@signInStyle.css">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <Text fill="#2e2525" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="passText" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="85.0" top="15.0" />
+               </VBox.margin>
+            </Text>
+            <PasswordField fx:id="passField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" styleClass="passwordField" stylesheets="@signInStyle.css" />
+            <Button fx:id="signInBtn" mnemonicParsing="false" onAction="#signInAction" styleClass="signInBtn" stylesheets="@signInStyle.css" text="sign in" textFill="#e4d9d9">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>

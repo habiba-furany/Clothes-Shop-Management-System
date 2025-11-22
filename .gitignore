@@ -13,3 +13,4 @@ System.db
 
 # Keep schema file
 !schema.sql
+/nbproject/private/
