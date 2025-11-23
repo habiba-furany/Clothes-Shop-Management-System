@@ -68,4 +68,33 @@ CREATE TABLE IF NOT EXISTS "User" (
 	PRIMARY KEY("UID"),
 	FOREIGN KEY("UID") REFERENCES "Person"("ID")
 );
+CREATE TRIGGER auto_insert_from_person
+AFTER INSERT ON Person
+BEGIN
+    -- Customer
+    INSERT INTO Customer (CID)
+    SELECT NEW.ID
+    WHERE NEW.Type = 'CUSTOMER';
+
+    -- Supplier
+    INSERT INTO Supplier (SID)
+    SELECT NEW.ID
+    WHERE NEW.Type = 'SUPPLIER';
+
+    -- User
+    INSERT INTO User (UID, Email, Password, Type, Salary)
+    SELECT NEW.ID, NEW.Contact_Info, NEW.Name, NEW.Type, NULL
+    WHERE NEW.Type = 'USER';
+END;
+CREATE TRIGGER auto_user_type_update
+AFTER UPDATE OF Type ON User
+BEGIN
+    INSERT INTO Admin (AID)
+    SELECT NEW.UID
+    WHERE NEW.Type = 'ADMIN';
+
+    INSERT INTO Cashier (CAID)
+    SELECT NEW.UID
+    WHERE NEW.Type = 'CASHIER';
+END;
 COMMIT;

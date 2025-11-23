@@ -15,9 +15,9 @@ public class Person {
     static private int counter;
 
     public Person(String name, String contact_info, Type type) {
-        initializeCounter();
-        counter ++;
-        this .id=counter;
+//        initializeCounter();
+//        counter ++;
+//        this .id=counter;
         this.name = name;
         this.contact_info = contact_info;
         this.type = type;

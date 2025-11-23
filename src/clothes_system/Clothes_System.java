@@ -26,41 +26,40 @@ public class Clothes_System extends Application {
         stage.setMaximized(true);
         stage.show();
         
-          /*User u = new User("wateen","01543333",Type.USER,"wateen@gmail.com","123w",1000543,Utype.CASHIER);
-        if(addUser(u)) System.out.println("sucessful");
-*/
+          User u = new User("Hanen","0124454",Type.USER,"hanen@gmail.com","h456",15000,Utype.CASHIER);
+       if(addUser(u)) System.out.println("sucessful");
+
 
     }
 
     public static boolean addUser(User u){
-        String sql ="INSERT INTO Person(ID,Name,Contact_Info,Type) VALUES(?,?,?,?)";
+        String sql ="INSERT INTO Person(Name,Contact_Info,Type) VALUES(?,?,?)";
         try(Connection connection=DBconnector.connect();
             PreparedStatement ps = connection.prepareStatement(sql)){
-            ps.setInt(1,u.getId());
-            ps.setString(2,u.getName());
-            ps.setString(3,u.getContact_info());
-            ps.setString(4,u.getType());
+            ps.setString(1,u.getName());
+            ps.setString(2,u.getContact_info());
+            ps.setString(3,u.getType());
             ps.executeUpdate();
-            ResultSet generatedKeys = ps.getGeneratedKeys();
+           ResultSet generatedKeys = ps.getGeneratedKeys();
             int personId = 0;
             if (generatedKeys.next()) {
                  personId = generatedKeys.getInt(1);
             }
-            String sqlUser = "INSERT INTO User(UID, Email, Password, Type, Salary) VALUES(?,?,?,?,?)";
+            
+            String sqlUser = "UPDATE User SET Email = ?, Password = ?, Type = ?, Salary = ? WHERE UID = ?";
             PreparedStatement psUser = connection.prepareStatement(sqlUser);
-            psUser.setInt(1, personId);
-            psUser.setString(2, u.getEmail());
-            psUser.setString(3, u.getPassword());
-            psUser.setString(4, u.getUtype());
-            psUser.setDouble(5, u.getSalary());
+            
+            psUser.setString(1, u.getEmail());
+            psUser.setString(2, u.getPassword());
+            psUser.setString(3, u.getUtype());
+            psUser.setDouble(4, u.getSalary());
+            psUser.setInt(5, personId);
             psUser.executeUpdate();
                 
    
             System.out.println(" missin done ");
             return true;
 
-            
-            
             }catch(SQLException e){
                 e.printStackTrace();
                 return false;
