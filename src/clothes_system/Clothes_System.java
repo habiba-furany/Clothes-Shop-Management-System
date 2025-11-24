@@ -41,10 +41,10 @@ public class Clothes_System extends Application {
             ps.setString(3,u.getType());
             ps.executeUpdate();
            ResultSet generatedKeys = ps.getGeneratedKeys();
-            int personId = 0;
-            if (generatedKeys.next()) {
-                 personId = generatedKeys.getInt(1);
-            }
+//            int personId = 0;
+//            if (generatedKeys.next()) {
+//                 personId = generatedKeys.getInt(1);
+//            }
             
             String sqlUser = "UPDATE User SET Email = ?, Password = ?, Type = ?, Salary = ? WHERE UID = ?";
             PreparedStatement psUser = connection.prepareStatement(sqlUser);
@@ -53,7 +53,7 @@ public class Clothes_System extends Application {
             psUser.setString(2, u.getPassword());
             psUser.setString(3, u.getUtype());
             psUser.setDouble(4, u.getSalary());
-            psUser.setInt(5, personId);
+            psUser.setInt(5, u.getId());
             psUser.executeUpdate();
                 
    
