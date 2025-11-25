@@ -107,16 +107,16 @@ BEGIN
             THEN RAISE(ABORT, 'Not enough stock for this product!')
         END;
 END;
-CREATE TRIGGER Prevent_Duplicate_User
-BEFORE INSERT ON User
+CREATE TRIGGER Prevent_Duplicate_person
+BEFORE INSERT ON  Person
 FOR EACH ROW
 BEGIN
     SELECT CASE
         WHEN EXISTS (
-            SELECT 1 FROM User
-            WHERE Email = NEW.Email
+            SELECT 1 FROM Person
+            WHERE Contact_Info = NEW.Contact_Info
         )
-        THEN RAISE(ABORT, 'User with this Email already exists!')
+        THEN RAISE(ABORT, 'User already exists!')
     END;
 END;
 CREATE TRIGGER Prevent_ProductPrice_Change
