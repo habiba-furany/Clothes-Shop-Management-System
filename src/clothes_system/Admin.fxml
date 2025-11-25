@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.BorderPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox alignment="CENTER" layoutY="-1.0" prefHeight="111.0" prefWidth="600.0" styleClass="coloredArea" stylesheets="@admin.css">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="837.0" style="-fx-background-color: #c1b2d8;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clothes_system.AdminController">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#d7cccc" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin DashBoard" textOrigin="CENTER">
-               <font>
-                  <Font size="41.0" />
-               </font>
-            </Text>
+            <ImageView fitHeight="1289.0" fitWidth="1488.0" pickOnBounds="true" preserveRatio="true" visible="true">
+               <image>
+                  <Image url="@photo/Gemini_Generated_Image_i6l835i6l835i6l8.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="employeeTable" layoutX="130" layoutY="480" prefHeight="650" prefWidth="1030" styleClass="table-view">
+              <columns>
+                <TableColumn fx:id="colID" prefWidth="150" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="200" text="Name" />
+                  <TableColumn fx:id="colPhone" prefWidth="200" text="Phone" />
+                  <TableColumn fx:id="colEmail" prefWidth="200" text="E-mail" />
+                  <TableColumn fx:id="colSalary" prefWidth="150" text="Salary" />
+                  <TableColumn fx:id="colRole" prefWidth="150" text="Role" />
+              </columns>
+            </TableView>
+            <TextField fx:id="searchField" layoutX="180" layoutY="340" prefHeight="45" prefWidth="600" promptText="Search employee..." styleClass="search-field" />
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </center>
+<left>
+    <AnchorPane prefHeight="638.0" prefWidth="469.0" style="-fx-background-color: #e0dce4;" BorderPane.alignment="CENTER">
+        <children>
+            <Button fx:id="productButton" layoutX="20.0" layoutY="100.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Product Management" />
+            <Button fx:id="myButton1" layoutX="20.0" layoutY="240.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Sales" textFill="#28052e" />
+            <Button fx:id="myButton2" layoutX="20.0" layoutY="380.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Employees" textFill="#28052e" />
+            <Button fx:id="myButton3" layoutX="20.0" layoutY="520.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Customers" textFill="#28052e" />
+            <Button fx:id="myButton4" layoutX="20.0" layoutY="660.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Reports" textFill="#28052e" />
+            <Button fx:id="myButton5" layoutX="20.0" layoutY="850.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Log Out" textFill="#28052e" />
 
+        </children>
+    </AnchorPane>
+</left>
+
+   <right>
+      <AnchorPane prefHeight="638.0" prefWidth="386.0" style="-fx-background-color: #f0f0ef;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="AddUserButton" layoutX="20.0" layoutY="200.0" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Add Empolyee" />
+            <Button fx:id="EditUserButton" layoutX="20.0" layoutY="400" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Edit Empolyee" />
+            <Button fx:id="DelUserButton" layoutX="20.0" layoutY="600" prefHeight="74.0" prefWidth="377.0" styleClass="nav-button" text="Delete Empolyee" />
+         </children></AnchorPane>
+   </right>
+</BorderPane>

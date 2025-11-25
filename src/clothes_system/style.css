@@ -1,0 +1,108 @@
+
+.nav-button {
+    -fx-border-color: #7651ac; 
+    -fx-border-width: 2px;     
+    -fx-background-radius: 10px; 
+    
+    -fx-background-color: transparent; 
+    -fx-text-fill: #28052e; 
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-family: 'Bookman Old Style';
+    -fx-cursor: hand;
+    -fx-padding: 10px 15px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #ede7f6; 
+       -fx-border-color: #b39ddb; 
+    
+}
+
+.nav-button.active {
+    -fx-background-color: #d1c4e9; 
+    -fx-text-fill: #28052e;
+    -fx-border-color: #7e57c2; 
+    -fx-border-width: 0 0 0 4px; 
+    -fx-border-radius: 8px;
+}
+
+.search-field {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-border-color: #4A2E9B;
+    -fx-border-width: 2;
+    -fx-padding: 0 15 0 15;
+    -fx-font-size: 18px;
+    -fx-font-family: "Verdana";
+}
+.search-field:focused {
+    -fx-border-color: #4A2E9B;
+    -fx-effect: dropshadow(gaussian, rgba(74,46,155,0.4), 8, 0.5, 0, 0);
+}
+
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;  
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #4A2E9B;  
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header,
+.table-view .table-row-cell {
+    -fx-border-color: #7d3cff;      
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-border-color: transparent;    
+    -fx-border-width: 0 1 1 0;    
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+}
+
+
+.table-view .column-header-background .filler,
+.table-view .column-header .sort-arrow,
+.table-view .column-header .arrow,
+.table-view .column-header .label *.text {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-border-width: 0 0 1 0; 
+}
+
+.table-view .column-header .column-header-horizontal-lines {
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+
+

@@ -14,13 +14,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+
 public class Clothes_System extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         
         stage.setScene(scene);
         stage.setMaximized(true);
