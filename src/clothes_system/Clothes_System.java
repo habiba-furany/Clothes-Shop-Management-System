@@ -26,10 +26,10 @@ public class Clothes_System extends Application {
         stage.setMaximized(true);
         stage.show();
         
-          User u = new User("Hanen","0124454",Type.USER,"hanen@gmail.com","h456",15000,Utype.CASHIER);
-       if(addUser(u)) System.out.println("sucessful");
-
-
+      //  User u = new User("mai","98765",Type.USER,"mai@gmail.com","ma678",7000,Utype.CASHIER);
+      //  if(addUser(u)) System.out.println("sucessful");
+      //  Customer c = new Customer("reem","6789",Type.CUSTOMER);
+      //  if (Customer.addCustomer(c)) System.out.println ("added sucess");
     }
 
     public static boolean addUser(User u){
@@ -40,11 +40,11 @@ public class Clothes_System extends Application {
             ps.setString(2,u.getContact_info());
             ps.setString(3,u.getType());
             ps.executeUpdate();
-           ResultSet generatedKeys = ps.getGeneratedKeys();
-//            int personId = 0;
-//            if (generatedKeys.next()) {
-//                 personId = generatedKeys.getInt(1);
-//            }
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            int personId = 0;
+            if (generatedKeys.next()) {
+                 personId = generatedKeys.getInt(1);
+           }
             
             String sqlUser = "UPDATE User SET Email = ?, Password = ?, Type = ?, Salary = ? WHERE UID = ?";
             PreparedStatement psUser = connection.prepareStatement(sqlUser);
