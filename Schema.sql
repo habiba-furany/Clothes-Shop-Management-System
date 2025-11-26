@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS "OrderItem" (
 	FOREIGN KEY("OID") REFERENCES "Orders"("ID"),
 	FOREIGN KEY("PID") REFERENCES "Product"("ID")
 );
+
+
 CREATE TABLE IF NOT EXISTS "Orders" (
 	"ID"	INTEGER,
 	"Date"	TEXT NOT NULL,
@@ -32,7 +34,7 @@ CREATE TABLE IF NOT EXISTS "Orders" (
 	"Total_Price"	REAL,
 	"CID"	INTEGER,
 	"CAID"	INTEGER,
-	PRIMARY KEY("ID" AUTOINCREMENT),
+	PRIMARY KEY("ID" ),
 	FOREIGN KEY("CAID") REFERENCES "Cashier"("CAID"),
 	FOREIGN KEY("CID") REFERENCES "Customer"("CID")
 );
@@ -41,7 +43,7 @@ CREATE TABLE IF NOT EXISTS "Person" (
 	"Name"	TEXT NOT NULL,
 	"Contact_Info"	TEXT,
 	"Type"	TEXT NOT NULL,
-	PRIMARY KEY("ID" AUTOINCREMENT)
+	PRIMARY KEY("ID" )
 );
 CREATE TABLE IF NOT EXISTS "Product" (
 	"ID"	INTEGER,
@@ -51,7 +53,7 @@ CREATE TABLE IF NOT EXISTS "Product" (
 	"Status"	TEXT,
 	"SID"	INTEGER,
 	"Colour"	TEXT,
-	PRIMARY KEY("ID" AUTOINCREMENT),
+	PRIMARY KEY("ID" ),
 	FOREIGN KEY("SID") REFERENCES "Supplier"("SID")
 );
 CREATE TABLE IF NOT EXISTS "Supplier" (
@@ -68,4 +70,33 @@ CREATE TABLE IF NOT EXISTS "User" (
 	PRIMARY KEY("UID"),
 	FOREIGN KEY("UID") REFERENCES "Person"("ID")
 );
+CREATE TRIGGER auto_insert_from_person
+AFTER INSERT ON Person
+BEGIN
+    -- Customer
+    INSERT INTO Customer (CID)
+    SELECT NEW.ID
+    WHERE NEW.Type = 'Customer';
+
+    -- Supplier
+    INSERT INTO Supplier (SID)
+    SELECT NEW.ID
+    WHERE NEW.Type = 'Supplier';
+
+    -- User
+    INSERT INTO User (UID, Email, Password, Type, Salary)
+    SELECT NEW.ID, NEW.Contact_Info, NEW.Name, NEW.Type, NULL
+    WHERE NEW.Type = 'User';
+END;
+CREATE TRIGGER auto_user_type_update
+AFTER UPDATE OF Type ON User
+BEGIN
+    INSERT INTO Admin (AID)
+    SELECT NEW.UID
+    WHERE NEW.Type = 'Admin';
+
+    INSERT INTO Cashier (CAID)
+    SELECT NEW.UID
+    WHERE NEW.Type = 'Cashier';
+END;
 COMMIT;

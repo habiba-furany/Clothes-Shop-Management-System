@@ -2,6 +2,24 @@
  * Empty Stylesheet file.
  */
 
-.coloredArea {
--fx-background-color: #836953;
+.sideBar{
+    -fx-background-color: #E7DDFF;
+}
+.anchorReport{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+.chartVBox{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 15;
+}
+.topCustomerPrice{
+    -fx-background-color: #E2EAF4;
+    -fx-background-radius: 15;
+}
+.low_Stock{
+    -fx-background-color: #E2EAF4;
+    -fx-background-radius: 15;
+}
+.reportHBox:hover{
+    -fx-cursor: hand;
 }

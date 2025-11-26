@@ -1,22 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox alignment="CENTER" layoutY="-1.0" prefHeight="111.0" prefWidth="600.0" styleClass="coloredArea" stylesheets="@admin.css">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clothes_system.AdminController">
+   <left>
+      <VBox fx:id="sideBar" prefHeight="800.0" prefWidth="198.0" styleClass="sideBar" stylesheets="@admin.css" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#d7cccc" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin DashBoard" textOrigin="CENTER">
-               <font>
-                  <Font size="41.0" />
-               </font>
-            </Text>
+            <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="198.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/16-169348_user-icon-user-white-icon-transparent-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="170.0" spacing="5.0" styleClass="reportHBox">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/208-2088538_report-icon-reports-icon-white-png-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Products" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/578-5787543_beard-bates-white-swipe-arrow-png-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="150.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="170.0" spacing="5.0" styleClass="reportHBox">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/208-2088538_report-icon-reports-icon-white-png-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Sales" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/578-5787543_beard-bates-white-swipe-arrow-png-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="5.0" styleClass="reportHBox">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/208-2088538_report-icon-reports-icon-white-png-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Employees" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/578-5787543_beard-bates-white-swipe-arrow-png-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="5.0" styleClass="reportHBox">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/208-2088538_report-icon-reports-icon-white-png-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Customers" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/578-5787543_beard-bates-white-swipe-arrow-png-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="reportChoose" alignment="CENTER_LEFT" onMouseClicked="#reportsDisplay" prefHeight="30.0" prefWidth="200.0" spacing="5.0" styleClass="reportHBox" stylesheets="@admin.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/208-2088538_report-icon-reports-icon-white-png-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Reports" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/images/578-5787543_beard-bates-white-swipe-arrow-png-clipart-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="5.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="229.0" prefWidth="198.0" spacing="5.0" styleClass="reportHBox">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="200.0" text="Log Out" textFill="#a676ac">
+                     <HBox.margin>
+                        <Insets left="20.0" top="200.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children></VBox>
+   </left>
+   <center>
+      <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="1315.0" styleClass="stackPane" stylesheets="@admin.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="800.0" fitWidth="1358.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/images/Gemini_Generated_Image_i6l835i6l835i6l8.png" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="anchorReport" prefHeight="200.0" prefWidth="200.0" styleClass="anchorReport" stylesheets="@admin.css">
+               <children>
+                  <VBox prefHeight="802.0" prefWidth="1361.0">
+                     <children>
+                        <StackPane fx:id="mainContentPane" prefHeight="799.0" prefWidth="1327.0">
+                           <children>
+                              <AnchorPane fx:id="reportsPane" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" layoutX="126.0" layoutY="44.0" prefHeight="142.0" prefWidth="262.0" styleClass="topCustomerPrice" stylesheets="@admin.css" AnchorPane.leftAnchor="126.0" AnchorPane.topAnchor="44.0">
+                                       <children>
+                                          <Label text="TOP CUSTOMER PRICE" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="top_Price_Result" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="158.0" layoutY="269.0" prefHeight="128.0" prefWidth="252.0" styleClass="topCustomerPrice" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="TOP CUSTOMER ORDER" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="top_Order_Result" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="461.0" layoutY="43.0" prefHeight="80.0" prefWidth="250.0" styleClass="topCustomerPrice" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Payment Method Report" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="payment_Method_Rep" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox layoutX="14.0" layoutY="504.0" prefHeight="258.0" prefWidth="402.0" styleClass="chartVBox" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="sales In Year " textFill="#766c6c">
+                                             <VBox.margin>
+                                                <Insets left="150.0" top="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <BarChart fx:id="prices_Chart" prefHeight="150.0" prefWidth="510.0" styleClass="chartshape" stylesheets="@admin.css">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <VBox.margin>
+                                                <Insets left="20.0" right="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </BarChart>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="457.0" layoutY="510.0" prefHeight="258.0" prefWidth="402.0" styleClass="chartVBox" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Orders In Year" textFill="#766c6c">
+                                             <VBox.margin>
+                                                <Insets left="150.0" top="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <BarChart fx:id="Orders_Chart" prefHeight="150.0" prefWidth="510.0" styleClass="chartshape" stylesheets="@admin.css">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <VBox.margin>
+                                                <Insets left="20.0" right="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </BarChart>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="897.0" layoutY="506.0" prefHeight="258.0" prefWidth="429.0" styleClass="chartVBox" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Best Seller Product" textFill="#766c6c">
+                                             <VBox.margin>
+                                                <Insets left="150.0" top="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <BarChart fx:id="Seller_Chart" prefHeight="150.0" prefWidth="510.0" styleClass="chartshape" stylesheets="@admin.css">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <VBox.margin>
+                                                <Insets left="20.0" right="30.0" top="50.0" />
+                                             </VBox.margin>
+                                          </BarChart>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="785.0" layoutY="47.0" prefHeight="128.0" prefWidth="252.0" styleClass="topCustomerPrice" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Best Supplier" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="top_Supplier" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="935.0" layoutY="275.0" prefHeight="128.0" prefWidth="252.0" styleClass="topCustomerPrice" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Total Revenue" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="Total_Revenue" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" layoutX="1072.0" layoutY="41.0" prefHeight="128.0" prefWidth="252.0" styleClass="low_Stock" stylesheets="@admin.css">
+                                       <children>
+                                          <Label text="Low Stock Alert" textFill="#766c6c">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="alert" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="top_Price_Result" text="Text">
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="50.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
-
+      </StackPane>
+   </center>
+</BorderPane>

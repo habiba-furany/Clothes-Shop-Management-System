@@ -18,13 +18,18 @@ public class Clothes_System extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
+        Reports.payment_Methods_Prices();
+
+        
+        
+
         
           /*User u = new User("wateen","01543333",Type.USER,"wateen@gmail.com","123w",1000543,Utype.CASHIER);
         if(addUser(u)) System.out.println("sucessful");
